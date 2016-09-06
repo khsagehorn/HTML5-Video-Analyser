@@ -45,6 +45,7 @@ video {
   width: 75%;
   border-radius: 45px;
   border: solid #ffffff 13px;
+  z-index: -1;
   
 
 }

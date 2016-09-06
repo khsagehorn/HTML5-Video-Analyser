@@ -4,6 +4,11 @@ var seekingArr = [];
 var playback = {
   pause: [],
   seek: [],
+  replay: 0
+}
+
+var bounce = function(){
+  $("#actions").addClass("blast animated bounceIn"); 
 }
 
 var timeFunc = function(){
@@ -15,9 +20,10 @@ var timeFunc = function(){
   }
 }
 
-video.ended = function() {
-    $("#actions").html("<h2 class='animated bounceIn blast'>ENDED @ "+time+" seconds</h2");
-    $("#actions").addClass("blast animated bounceIn");  
+video.onended = function() {
+  time = timeFunc();
+  $("#actions").html("<h2 class='animated bounceIn blast'>ENDED @ "+time+" seconds</h2");
+  bounce();
 }  
 
 
@@ -31,7 +37,6 @@ video.onpause = function(){
     console.log(playback.pause);
     // $("#actions").addClass("animated bounceIn");
     $("#actions").html("<h2 class='animated bounceIn blast'>PAUSED @ "+time+" seconds</h2");
-    $("#actions").addClass("blast animated bounceIn");
   }
 }
 
@@ -49,16 +54,24 @@ video.addEventListener('progress', function() {
 
 video.onseeking = function() {
   time = timeFunc();
-  console.log("SEEKING!!");
+  console.log(time);
+
+ if (time > 0){
   seekingArr.push(video.currentTime);
   // console.log(seekingArr);
   playback.seek.push(seekingArr[seekingArr.length - 1]);
   $("#actions").html("<h2 class='animated bounceIn blast'>SKIPPED to "+time+" seconds</h2");
-  $("#actions").addClass("blast animated bounceIn");
+  }
+  else {
+  $("#actions").html("<h2 class='animated bounceIn blast'>STARTED OVER</h2");
+      playback.replay++;
+      console.log(playback);
+
+  }
 }
 
 video.onseeked = function() {
-  console.log(playback.seek)
+  console.log(playback)
 }
 
 console.log(playback);
