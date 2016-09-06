@@ -6,6 +6,7 @@ var playback = {
   seek: [],
   replay: 0
 }
+var i = playback.replay+1;
 
 var bounce = function(){
   $("#actions").addClass("blast animated bounceIn"); 
@@ -30,6 +31,7 @@ video.onended = function() {
 video.onpause = function(){
   
   var time = timeFunc();
+  // var session = playback.session+
 
   if (!(video.ended)){
 
@@ -66,7 +68,7 @@ video.onseeking = function() {
   $("#actions").html("<h2 class='animated bounceIn blast'>STARTED OVER</h2");
       playback.replay++;
       console.log(playback);
-
+      console.log(i);
   }
 }
 
