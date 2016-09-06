@@ -1,0 +1,50 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+@import 'https://fonts.googleapis.com/css?family=Chango';
+
+body {
+  background-color:  #ccf5ff;
+  /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+  /*font-weight: 300;*/
+  font-family: 'Open Sans';
+
+
+}
+
+h2 {
+  font-family: 'Chango', cursive;
+  font-size: 240%;
+  color: red;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+
+
+}
+
+#actionsBox {
+  margin: auto;
+  text-align: center;
+  /*display: inline;*/
+  width: 70%;
+  height: 300px;
+}
+
+#actions {
+  vertical-align: 50%;
+  /*line-height: 300px;*/
+}
+
+/*.blast {
+  text-align: center;
+  margin: auto;
+  background-image: url("blast.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+}*/
+
+video {
+  width: 75%;
+  border-radius: 45px;
+  border: solid #ffffff 13px;
+  
+
+}
